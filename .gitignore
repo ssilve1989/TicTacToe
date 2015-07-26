@@ -1,0 +1,4 @@
+.idea
+out
+web/WEB-INF/bower_components
+*.iml
