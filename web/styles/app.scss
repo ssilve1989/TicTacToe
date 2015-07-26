@@ -1,0 +1,32 @@
+@import 'mixins/transform';
+body{
+  font-family: FontAwesome, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#grid {
+  > .row {
+    > .cell {
+      border-right: 2px solid black;
+      border-bottom: 2px solid black;
+      &:last-child {
+        border-right: 0;
+      }
+      &:hover {
+        opacity: .75;
+      }
+      .fa{
+        //the icons
+        width: 100%;
+        height: 100%;
+        font-size: 10em;
+        @include translate(32%, 10%);
+      }
+    }
+    &:last-child{
+      > .cell {
+        border-bottom: 0;
+      }
+    }
+  }
+}
