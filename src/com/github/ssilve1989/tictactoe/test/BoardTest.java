@@ -1,7 +1,9 @@
 package com.github.ssilve1989.tictactoe.test;
 
-import com.github.ssilve1989.tictactoe.Board;
-import com.github.ssilve1989.tictactoe.GameState;
+import com.github.ssilve1989.tictactoe.game.Board;
+import com.github.ssilve1989.tictactoe.game.GameState;
+import com.github.ssilve1989.tictactoe.helper.Cell;
+import com.github.ssilve1989.tictactoe.test.helper.Boards;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,46 +13,52 @@ import static org.junit.Assert.*;
  */
 public class BoardTest {
 
-    private static final String[][] grid = new String[][] {{"x", null, "o"}, {"x", null, null}, {null, null, null}};
-
     @Test
     public void testNormalizeBoard(){
-        Board board = new Board(grid);
-        String[][] _grid = board.getBoard();
+        String[][] _grid = Boards.randomBoard.getBoard();
         assertTrue(_grid[0][1].isEmpty());
     }
 
     @Test
     public void testMovesLeft(){
+        final String[][] grid = new String[][] {{"x", null, "o"}, {"x", null, null}, {null, null, null}};
         Board board = new Board(grid);
         assertEquals(6, board.getMovesLeft());
     }
 
     @Test
     public void testRowWin(){
-        String[][] grid = new String[][] {{"x", "x", "x"}, {null, null, null}, {null, null, null}};
-        Board board = new Board(grid);
-        GameState state = new GameState(board, "x");
+        GameState state = new GameState(Boards.xWinRowBoard, "x");
         assertTrue(state.winByRow());
     }
 
     @Test
     public void testColumnWin(){
-        String[][] grid = new String[][] {{"x", null, null}, {"x", null, null}, {"x", null, null}};
-        Board board = new Board(grid);
-        GameState state = new GameState(board, "x");
+        GameState state = new GameState(Boards.xWinColumnBoard, "x");
         assertTrue(state.winByColumn());
     }
 
     @Test
     public void testDiagonalWin(){
-        String[][] grid = new String[][] {
-                {"x", "o", "x"},
-                {null, "x", "o"},
-                {null, "o", "x"}
-        };
-        Board board = new Board(grid);
-        GameState state = new GameState(board, "x");
+        GameState state = new GameState(Boards.xWinDiagonalBoard, "x");
         assertTrue(state.winByDiagonal());
+    }
+
+    @Test
+    public void toStringTest(){
+        System.out.println(Boards.xWinColumnBoard.toString());
+    }
+
+    @Test
+    public void copyBoard(){
+        Board copy = new Board(Boards.randomBoard);
+        assertNotEquals(copy, Boards.randomBoard);
+    }
+
+    @Test
+    public void modifyBoard(){
+        Board board = new Board(Boards.randomBoard);
+        board.getBoard()[0][0] = Cell.EMPTY;
+        assertEquals(Cell.EMPTY, board.getBoard()[0][0]);
     }
 }

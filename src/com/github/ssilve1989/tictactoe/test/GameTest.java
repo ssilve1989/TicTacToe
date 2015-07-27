@@ -1,8 +1,8 @@
 package com.github.ssilve1989.tictactoe.test;
 
-import com.github.ssilve1989.tictactoe.Board;
+import com.github.ssilve1989.tictactoe.game.Board;
 import com.github.ssilve1989.tictactoe.GameLogic;
-import com.github.ssilve1989.tictactoe.GameState;
+import com.github.ssilve1989.tictactoe.game.GameState;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

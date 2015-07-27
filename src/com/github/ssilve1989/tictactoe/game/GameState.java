@@ -1,4 +1,4 @@
-package com.github.ssilve1989.tictactoe;
+package com.github.ssilve1989.tictactoe.game;
 
 /**
  * Created by steve on 7/26/15.
@@ -90,12 +90,15 @@ public class GameState {
         return this.winner;
     }
 
-
     public String getOpponent() {
         return this.opponent;
     }
 
     public String getPlayer() {
         return this.player;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 }
