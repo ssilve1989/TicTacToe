@@ -23,7 +23,7 @@ public class GameLogic  {
         List<Integer> scores = new ArrayList<>();
         List<JSONObject> moves = new ArrayList<>();
 
-        return 0;
+        return 1;
     }
 
 }

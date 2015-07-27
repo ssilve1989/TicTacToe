@@ -28,6 +28,8 @@ public class EasyAI extends AIPlayer {
         Board board = state.getBoard();
         List<Cell> availableCells = board.getEmptyCells();
         int choice = (int) Math.round(Math.random() * availableCells.size());
-        return availableCells.get(choice);
+        Cell cell = availableCells.get(choice);
+        cell.setMarker(this.marker);
+        return cell;
     }
 }

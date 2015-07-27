@@ -67,6 +67,10 @@ public class Board {
         return emptyCells.isEmpty() ? Collections.emptyList() : emptyCells;
     }
 
+    public String getCellValue(Cell cell) {
+        return board[cell.getRow()][cell.getCol()];
+    }
+
     public boolean equals(Board _board){
         String[][] otherBoard = _board.getBoard();
         boolean equals = false;
@@ -87,6 +91,12 @@ public class Board {
             s.append("\n");
         }
         return s.toString();
+    }
+
+    public void placeValue(Cell nextMove) {
+        //gracefully handle attempting to fill a non-empty cell
+        if(!board[nextMove.getRow()][nextMove.getCol()].isEmpty()) return;
+        board[nextMove.getRow()][nextMove.getCol()] = nextMove.getMarker();
     }
 }
 
