@@ -1,6 +1,5 @@
 package com.github.ssilve1989.tictactoe.test;
 
-import com.github.ssilve1989.tictactoe.ai.AIPlayer;
 import com.github.ssilve1989.tictactoe.game.Board;
 import com.github.ssilve1989.tictactoe.game.GameState;
 import com.github.ssilve1989.tictactoe.helper.Cell;
@@ -44,7 +43,7 @@ public class BoardTest {
         GameState state = new GameState(Boards.xWinDiagonalBoard, "x");
         assertTrue(state.winByDiagonal());
     }
-    
+
     @Test
     public void copyBoard(){
         Board copy = new Board(Boards.randomBoard);

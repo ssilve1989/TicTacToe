@@ -38,4 +38,16 @@ public class Cell {
         s.append('[').append(row).append("][").append(col).append("] = ").append(marker.isEmpty() ? "EMPTY" : marker);
         return s.toString();
     }
+
+    public boolean isEdge() {
+        if(row == 0 && col == 1) return true;
+        if(row == 1){
+            if(col == 0 || col == 2) return true;
+        }
+        return row == 2 && col == 1;
+    }
+
+    public boolean isCorner() {
+        return (col == 0 || col == 2) && (row == 0 || row == 2);
+    }
 }
