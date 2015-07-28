@@ -24,8 +24,16 @@ public class NormalAI extends AIPlayer {
      */
     @Override
     public Cell move(GameState state) {
+        Board board = state.getBoard();
+        String[][] grid = board.getBoard();
+        List<Cell> availableCells = board.getEmptyCells();
+        //Should I be blocking anywehere?
+        boolean block = false;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
 
+            }
+        }
+        return null;
     }
-
-
 }
