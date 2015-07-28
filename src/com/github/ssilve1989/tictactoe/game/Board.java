@@ -17,6 +17,7 @@ public class Board {
 
     public Board(){
         this.board = new String[3][3];
+        normalize();
     }
     public Board(String[][] board){
         this.board = board;
@@ -69,6 +70,10 @@ public class Board {
 
     public String getCellValue(Cell cell) {
         return board[cell.getRow()][cell.getCol()];
+    }
+
+    public String getCellValue(int row, int col){
+        return board[row][col];
     }
 
     public boolean equals(Board _board){

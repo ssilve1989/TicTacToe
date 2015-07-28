@@ -30,8 +30,15 @@ public class Boards {
             {null, "o", "x"}
     };
 
+    private static final String[][] lastColumnWin = new String[][] {
+            {"", "o", "x"},
+            {"x", "", "x"},
+            {"o", "o", "x"}
+    };
+
     public static final Board randomBoard = new Board(randomGrid);
     public static final Board xWinRowBoard = new Board(xWinRow);
     public static final Board xWinColumnBoard = new Board(xWinColumn);
     public static final Board xWinDiagonalBoard = new Board(xWinDiagonal);
+    public static final Board lastColumnWinBoard = new Board(lastColumnWin);
 }

@@ -13,10 +13,8 @@ import java.util.List;
  */
 public class EasyAI extends AIPlayer {
 
-    private final String marker;
-
     public EasyAI(String marker){
-        this.marker = marker;
+        super(marker);
     }
 
     /**
@@ -27,9 +25,10 @@ public class EasyAI extends AIPlayer {
     public Cell move(GameState state){
         Board board = state.getBoard();
         List<Cell> availableCells = board.getEmptyCells();
-        int choice = (int) Math.round(Math.random() * availableCells.size());
+        int choice = (int) Math.floor(Math.random() * availableCells.size());
         Cell cell = availableCells.get(choice);
         cell.setMarker(this.marker);
         return cell;
     }
+
 }
