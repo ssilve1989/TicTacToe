@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>GameLogic</servlet-name>
-        <servlet-class>com.github.ssilve1989.tictactoe.GameLogic</servlet-class>
+        <servlet-class>com.github.ssilve1989.tictactoe.TicTacToe</servlet-class>
     </servlet>
 
     <servlet-mapping>

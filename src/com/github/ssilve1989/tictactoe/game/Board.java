@@ -103,5 +103,10 @@ public class Board {
         if(!board[nextMove.getRow()][nextMove.getCol()].isEmpty()) return;
         board[nextMove.getRow()][nextMove.getCol()] = nextMove.getMarker();
     }
+
+    public void placeValue(Cell nextMove, String marker){
+        nextMove.setMarker(marker);
+        placeValue(nextMove);
+    }
 }
 

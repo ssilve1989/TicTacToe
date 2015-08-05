@@ -6,6 +6,9 @@ import com.github.ssilve1989.tictactoe.helper.Cell;
 import com.github.ssilve1989.tictactoe.test.helper.Boards;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -20,6 +23,20 @@ public class BoardTest {
     }
 
     @Test
+    public void foo(){
+        Board board = Boards.randomBoard;
+        GameState state = new GameState(board);
+        //System.out.println(state.getBoard().toString());
+        List<Cell> cells = state.getBoard().getEmptyCells();
+        state.getBoard().placeValue(cells.get(0), "x");
+        //System.out.println(state.getBoard().toString());
+
+        System.out.println(state.getBoard());
+        board = state.getBoard();
+        assertEquals(board, state.getBoard());
+    }
+
+    @Test
     public void testMovesLeft(){
         final String[][] grid = new String[][] {{"x", null, "o"}, {"x", null, null}, {null, null, null}};
         Board board = new Board(grid);
@@ -28,19 +45,19 @@ public class BoardTest {
 
     @Test
     public void testRowWin(){
-        GameState state = new GameState(Boards.xWinRowBoard, "x");
+        GameState state = new GameState(Boards.xWinRowBoard);
         assertTrue(state.winByRow());
     }
 
     @Test
     public void testColumnWin(){
-        GameState state = new GameState(Boards.lastColumnWinBoard, "x");
+        GameState state = new GameState(Boards.lastColumnWinBoard);
         assertTrue(state.winByColumn());
     }
 
     @Test
     public void testDiagonalWin(){
-        GameState state = new GameState(Boards.xWinDiagonalBoard, "x");
+        GameState state = new GameState(Boards.xWinDiagonalBoard);
         assertTrue(state.winByDiagonal());
     }
 
@@ -56,4 +73,5 @@ public class BoardTest {
         board.getBoard()[0][0] = Cell.EMPTY;
         assertEquals(Cell.EMPTY, board.getBoard()[0][0]);
     }
+
 }

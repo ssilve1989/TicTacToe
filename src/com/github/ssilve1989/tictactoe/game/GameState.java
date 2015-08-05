@@ -1,26 +1,25 @@
 package com.github.ssilve1989.tictactoe.game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by steve on 7/26/15.
  */
 public class GameState {
-    private static final String DRAW = "draw";
+    public static final String DRAW = "draw";
 
     private Board board;
-    private final String player;
-    private final String opponent;
     private boolean gameOver;
     private String winner;
 
-    public GameState(Board board, String player){
+    public GameState(Board board){
         this.board = board;
-        this.player = player.toLowerCase();
-        this.opponent = player.equals("x") ? "o" : "x";
         this.winner = null;
         gameOver = checkForWin();
     }
 
-    private boolean checkForWin() {
+    public boolean checkForWin() {
         if(winByColumn()){
             return true;
         }else if(winByDiagonal()){
@@ -90,14 +89,6 @@ public class GameState {
 
     public String getWinner(){
         return this.winner;
-    }
-
-    public String getOpponent() {
-        return this.opponent;
-    }
-
-    public String getPlayer() {
-        return this.player;
     }
 
     public Board getBoard() {
